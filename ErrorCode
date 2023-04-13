@@ -1,10 +1,19 @@
+/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/neuralintents/main.py:97: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  training = np.array(training)
+WARNING:absl:`lr` is deprecated in Keras optimizer, please use `learning_rate` or use the legacy optimizer, e.g.,tf.keras.optimizers.legacy.SGD.
 Traceback (most recent call last):
   File "/home/erieriver/AlphaChu/002/main.py", line 69, in <module>
     Assistant()
-  File "/home/erieriver/AlphaChu/002/main.py", line 19, in __init__
-    self.assistant = GenericAssistant("intents.json", intent_methods={"browser": self.browser})
-  File "/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/neuralintents/main.py", line 53, in __init__
-    self.load_json_intents(intents)
-  File "/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/neuralintents/main.py", line 58, in load_json_intents
-    self.intents = json.loads(open(intents).read())
-FileNotFoundError: [Errno 2] No such file or directory: 'intents.json'
+  File "/home/erieriver/AlphaChu/002/main.py", line 21, in __init__
+    self.assistant.train_model()
+  File "/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/neuralintents/main.py", line 109, in train_model
+    sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
+  File "/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/keras/optimizers/sgd.py", line 111, in __init__
+    super().__init__(
+  File "/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/keras/optimizers/optimizer.py", line 1087, in __init__
+    super().__init__(
+  File "/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/keras/optimizers/optimizer.py", line 105, in __init__
+    self._process_kwargs(kwargs)
+  File "/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/keras/optimizers/optimizer.py", line 134, in _process_kwargs
+    raise ValueError(
+ValueError: decay is deprecated in the new Keras optimizer, pleasecheck the docstring for valid arguments, or use the legacy optimizer, e.g., tf.keras.optimizers.legacy.SGD.
