@@ -1,19 +1,31 @@
-/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/neuralintents/main.py:97: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
-  training = np.array(training)
-WARNING:absl:`lr` is deprecated in Keras optimizer, please use `learning_rate` or use the legacy optimizer, e.g.,tf.keras.optimizers.legacy.SGD.
 Traceback (most recent call last):
-  File "/home/erieriver/AlphaChu/002/main.py", line 69, in <module>
-    Assistant()
-  File "/home/erieriver/AlphaChu/002/main.py", line 21, in __init__
-    self.assistant.train_model()
-  File "/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/neuralintents/main.py", line 109, in train_model
-    sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
-  File "/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/keras/optimizers/sgd.py", line 111, in __init__
-    super().__init__(
-  File "/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/keras/optimizers/optimizer.py", line 1087, in __init__
-    super().__init__(
-  File "/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/keras/optimizers/optimizer.py", line 105, in __init__
-    self._process_kwargs(kwargs)
-  File "/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/keras/optimizers/optimizer.py", line 134, in _process_kwargs
-    raise ValueError(
-ValueError: decay is deprecated in the new Keras optimizer, pleasecheck the docstring for valid arguments, or use the legacy optimizer, e.g., tf.keras.optimizers.legacy.SGD.
+  File "/home/erieriver/PythonProjects/main.py", line 21, in <module>
+    noThanks =  driver.find_element(By.CSS_SELECTOR, 'gb_q')
+  File "/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 831, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+  File "/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 440, in execute
+    self.error_handler.check_response(response)
+  File "/home/erieriver/anaconda3/envs/AlphaChuAI/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"gb_q"}
+  (Session info: chrome=112.0.5615.49)
+Stacktrace:
+#0 0x55e090312fe3 <unknown>
+#1 0x55e090051d36 <unknown>
+#2 0x55e09008ec4d <unknown>
+#3 0x55e09008ed61 <unknown>
+#4 0x55e0900ca6a4 <unknown>
+#5 0x55e0900af8ed <unknown>
+#6 0x55e0900c8232 <unknown>
+#7 0x55e0900af693 <unknown>
+#8 0x55e09008203a <unknown>
+#9 0x55e09008317e <unknown>
+#10 0x55e0902d4dbd <unknown>
+#11 0x55e0902d8c6c <unknown>
+#12 0x55e0902e24b0 <unknown>
+#13 0x55e0902d9d63 <unknown>
+#14 0x55e0902acc35 <unknown>
+#15 0x55e0902fd138 <unknown>
+#16 0x55e0902fd2c7 <unknown>
+#17 0x55e09030b093 <unknown>
+#18 0x7fd8c5e94b43 <unknown>
