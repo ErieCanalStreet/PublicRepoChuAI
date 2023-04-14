@@ -1,69 +1,23 @@
-import sys
-import threading
-import tkinter as tk
-# import webbrowser
-
-import speech_recognition
-import pyttsx3 as tts
-
-
-from neuralintents import GenericAssistant
-
-class Assistant:
-
-    def __init__(self):
-        self.recognizer = speech_recognition.Recognizer()
-        self.speaker = tts.init()
-        self.speaker.setProperty("rate", 150)
-
-        self.assistant = GenericAssistant("intents.json")
-        self.assistant.train_model()
-
-        self.root = tk.Tk()
-        self.label = tk.Label(text="🤖", font=("Arial", 120, "bold"))
-        self.label.pack()
-
-        threading.Thread(target=self.run_assistant).start()
-
-        self.root.mainloop()
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
- #   def search_browser(self):
-  #      pass
+options = Options()
+options.add_experimental_option("detach", True)
 
-    def run_assistant(self):
-        while True:
-            try:
-                with speech_recognition.Microphone() as mic:
-                    self.recognizer.adjust_for_ambient_noise(mic, duration=0.2)
-                    audio = self.recognizer.listen(mic)
+driver = webdriver.Chrome(service= Service(ChromeDriverManager().install()),
+                          options=options
+                          )
 
-                    text = self.recognizer.recognize_google(audio)
-                    text = text.lower()
+driver.get("https://www.google.com/")
 
-                    if "hey chew" in text:
-                        self.label.config(fg="red")
-                        audio = self.recognizer.listen(mic)
-                        text = self.recognizer.recognize_google(audio)
-                        text = text.lower()
-                        if text == "stop":
-                            self.speaker.say("Goodbye")
-                            self.speaker.runAndWait()
-                            self.speaker.stop()
-                            self.root.destroy()
-                            sys.exit()
-                        else:
-                            if text is not None:
-                                response = self.assistant.request(text)
-                                if response is not None:
-                                    self.speaker.say(response)
-                                    self.speaker.runAndWait()
-                                self.label.config(fg="black")
+driver.implicitly_wait(3)
 
+noThanks =  driver.find_element(By.CSS_SELECTOR, 'gb_q')
 
-            except:
-                self.label.config(fg="black")
-                continue
-
-Assistant()
-
+noThanks.click()
